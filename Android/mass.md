@@ -11,6 +11,7 @@ Mass
 	解压apk压缩包，如果在META-INF目录内添加空文件，可以不用重新签名应用。因此，通过为不同渠道的应用添加不同的空文件，可以唯一标识一个渠道。
 
 	1.python脚本添加渠道名的前缀为ecchannel_
+		
 		#!usr/bin/python
 		import zipfile
 		import os
@@ -45,6 +46,7 @@ Mass
 			print ('循环执行',i)
 
 	2.Java代码中读取空渠道文件名
+
 		public static String getChannel(Context context) {
 		        ApplicationInfo appinfo = context.getApplicationInfo();
 		        String sourceDir = appinfo.sourceDir;
@@ -84,10 +86,12 @@ Mass
 
 3. ##Android Studio多渠道打包
 	1.友盟打包为例，清单文件配置
+
 		<meta-data
 		 android:name="UMENG_CHANNEL"
 		 android:value="${UMENG_CHANNEL_VALUE}"/>
 	2.build.gradle中android节点下配置flavor
+
 		 productFlavors {
 	        xiaomi {}
 	        _360 {}
@@ -99,8 +103,10 @@ Mass
 		    }
 	
 	3.studio 命令行中执行assemble命令：assemble+buildType中声明的类型
-	如 gradlew assembleUnsignedBuild
+
+		如 gradlew assembleUnsignedBuild
 	4.完整build.gradle文件
+
 		apply plugin: 'com.android.application'
 		
 		def releaseTime() {
