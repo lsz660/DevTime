@@ -2,10 +2,12 @@ Mass
 ===
 1. ##修改手机hosts
 	1.获取权限
-		adb shell  
+
+		adb shell
 		$ su  
 		mount -o remount,rw /system 
 	2.覆盖hosts文件
+
 		adb push  d:\hosts /system/etc/hosts
 2. ##美团自动化打包
 	解压apk压缩包，如果在META-INF目录内添加空文件，可以不用重新签名应用。因此，通过为不同渠道的应用添加不同的空文件，可以唯一标识一个渠道。
